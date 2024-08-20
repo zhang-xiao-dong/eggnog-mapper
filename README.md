@@ -3,8 +3,7 @@
 # go-basic.obo下载网址http://purl.obolibrary.org/obo/go/go-basic.obo
 sed '/^##/d' out.emapper.annotations | sed 's/#//'  | awk -F'\t' '{print $1"\t"$10}' | awk -F'\t' '{if ($2 != "-") {split($2, go, ","); for (i in go) print $1 "\t" go[i]}}' | tail +2 > self_out.emapper.annotations.GO.txt
 
-sed '/^##/d' out.emapper.annotations | sed 's/#//'  | awk -F'\t' '{print $1"\t"$8}' | tail +2 > self_out.emapper.annotations.descriptio
-n.txt
+sed '/^##/d' out.emapper.annotations | sed 's/#//'  | awk -F'\t' '{print $1"\t"$8}' | tail +2 > self_out.emapper.annotations.description.txt
 
 sed '/^##/d' out.emapper.annotations | sed 's/#//'  | awk -F'\t' '{print $1"\t"$11}' | awk -F'\t' '{if ($2 != "-") {split($2, KEGG_EC, ","); for (i in KEGG_EC) print $1 "\t" KEGG_EC[i]}}' | tail +2 > self_out.emapper.annotations.KEGG_EC.txt
 
